@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testng Cucumber Suite" parallel="tests" data-provider-thread-count="2">
+    <test name="Parallel" annotations="@NewUser" preserve-order="true">
+<!--        <parameter name="browser" value="chrome" />-->
+        <classes>
+            <class name="testRunner.TestNGTestRunner" />
+        </classes>
+    </test>
+</suite>
+
