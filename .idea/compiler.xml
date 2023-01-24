@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Kabum_Ecommerce" />
         <module name="Tribel" />
-        <module name="Tribel_BDD_Selenium_Cucumber" />
         <module name="CRS_Cuccumber_New" />
       </profile>
     </annotationProcessing>
