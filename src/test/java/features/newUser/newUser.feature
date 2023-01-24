@@ -4,6 +4,7 @@ Feature: Verify New User Functionality
   Scenario: Check that by clicking on Tribel.com icon the non user will be redirected to Tribel.com home page
     Given Click on the tribel.com icon
 
+
   @NewUser
   Scenario: Check if the non user can create new post by clicking on New post button
     Given Click on the tribel.com icon
