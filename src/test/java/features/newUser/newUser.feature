@@ -39,6 +39,7 @@ Feature: Verify New User Functionality
     And Non-user can not see "Invite Friends"
     Then Non-user is not be able to see "Friends" Feed
 
+
   @NewUser
   Scenario: Verify that non-users will not be able to see Following Feed
     Given Click on the tribel.com icon
