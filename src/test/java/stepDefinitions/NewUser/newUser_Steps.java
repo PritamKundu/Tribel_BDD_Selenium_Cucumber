@@ -83,5 +83,9 @@ public class newUser_Steps {
         Thread.sleep(2000);
         Assert.assertEquals(testContextSetup.testBase.driver.getCurrentUrl(), prop.getProperty("BreakingUrl"));
     }
+
+    @Given("click on my name")
+    public void clickOnMyName() {
+    }
 }
 

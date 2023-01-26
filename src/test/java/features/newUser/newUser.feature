@@ -4,6 +4,7 @@ Feature: Verify New User Functionality
   Scenario: Check that by clicking on Tribel.com icon the non user will be redirected to Tribel.com home page
     Given Click on the tribel.com icon
 
+
   @NewUser
   Scenario: Check if the non user can create new post by clicking on New post button
     Given Click on the tribel.com icon
@@ -38,6 +39,7 @@ Feature: Verify New User Functionality
     And Non-user can not see "Groups"
     And Non-user can not see "Invite Friends"
     Then Non-user is not be able to see "Friends" Feed
+
 
   @NewUser
   Scenario: Verify that non-users will not be able to see Following Feed

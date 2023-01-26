@@ -9,7 +9,8 @@ public class newUser_Page {
 
     WebDriver driver;
 
-    /*Locators*/ By tribelLogo = By.id("Layer_1");
+    /*Locators*/
+    By tribelLogo = By.id("Layer_1");
     By acceptPopup = By.xpath("//a[normalize-space()=\"Accept\"]");
     By trendingMenu = By.xpath("(//h6[normalize-space()='Trending'])[1]");
     By newPost = By.id("new_post_modal_box");
