@@ -49,7 +49,6 @@ Feature: Verify New User Functionality
     And Non-user is not be able to see "Friends" Feed
     Then Non-user is not be able to see "Following" Feed
 
-
   @NewUser
   Scenario: Check if the non user can see Breaking Feed posts
     Given Click on the tribel.com icon
