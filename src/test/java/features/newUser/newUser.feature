@@ -22,6 +22,7 @@ Feature: Verify New User Functionality
     And Non-user can not see the star contributors
     Then Non-user can not see "Groups"
 
+
   @NewUser
   Scenario: Check that the non-user is not allowed to go to the invite friends page
     Given Click on the tribel.com icon
