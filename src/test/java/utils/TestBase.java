@@ -43,7 +43,7 @@ public class TestBase {
             assert driver != null;
             driver.manage().window().maximize();
             driver.get(url);
-            Thread.sleep(10000);
+            Thread.sleep(3000);
         }
         return driver;
     }

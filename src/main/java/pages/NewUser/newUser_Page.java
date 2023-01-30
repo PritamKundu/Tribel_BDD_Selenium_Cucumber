@@ -70,7 +70,6 @@ public class newUser_Page {
         By feedName = By.xpath("//h6[normalize-space()='" + feed_name + "']");
         return driver.findElement(feedName);
     }
-
 }
 
 
