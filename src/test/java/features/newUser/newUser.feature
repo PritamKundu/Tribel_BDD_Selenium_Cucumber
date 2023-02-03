@@ -15,6 +15,7 @@ Feature: Verify New User Functionality
     When Non-user can not see "New Post"
     Then Non-user can not see the star contributors
 
+
   @NewUser
   Scenario: Check that the non user is not allowed to see the Groups
     Given Click on the tribel.com icon
