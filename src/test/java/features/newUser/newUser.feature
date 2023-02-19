@@ -68,6 +68,7 @@ Feature: Verify New User Functionality
     And Non-user is not be able to see "Following" Feed
     Then Verify on "Breaking" feed posts
 
+
   #TID 009
   @NewUser
   Scenario: Check if the non user can See Trending Feed posts
