@@ -26,18 +26,6 @@ public class common_Page {
         this.driver = driver;
     }
 
-    /*Common methods*/
-    public void nonUserAccCreateMessage(){
-        signUpButton().isDisplayed();
-        signUpButton().isEnabled();
-        signInButton().isDisplayed();
-        signInButton().isEnabled();
-        closePopup().click();
-    }
-
-
-
-
 
     /*Return Element*/
     public void acceptPopup() {
@@ -58,6 +46,16 @@ public class common_Page {
 
     public WebElement closePopup() {
         return driver.findElement(closePopup);
+    }
+
+
+    /*Common methods*/
+    public void nonUserAccCreateMessage(){
+        signUpButton().isDisplayed();
+        signUpButton().isEnabled();
+        signInButton().isDisplayed();
+        signInButton().isEnabled();
+        closePopup().click();
     }
 
     public void signIn() {
