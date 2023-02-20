@@ -1,18 +1,24 @@
 package pages;
-import pages.NewUser.newUser_Page;
+import pages.NonUser.nonUser_Page;
 import org.openqa.selenium.WebDriver;
 
 public class PageObjectManager {
 
     public WebDriver driver;
-    public newUser_Page newUserPage;
+    public nonUser_Page newUserPage;
+    public common_Page commonPage;
 
     public PageObjectManager(WebDriver driver) {
         this.driver = driver;
     }
 
-    public newUser_Page getNewUserPage() {
-        newUserPage = new newUser_Page(driver);
+    public nonUser_Page getNonUserPage() {
+        newUserPage = new nonUser_Page(driver);
         return newUserPage;
+    }
+
+    public common_Page getCommonPage() {
+        commonPage = new common_Page(driver);
+        return commonPage;
     }
 }

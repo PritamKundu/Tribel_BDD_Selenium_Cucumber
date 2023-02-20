@@ -11,19 +11,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import pages.NewUser.newUser_Page;
+import pages.NonUser.nonUser_Page;
 
 
 public class TestBase {
 
     public WebDriver driver;
-    newUser_Page newUserPage;
+    nonUser_Page newUserPage;
 
     public WebDriver WebDriverManager() throws IOException, InterruptedException {
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//test//resources//global.properties");
         Properties prop = new Properties();
         prop.load(fis);
-        String url = prop.getProperty("QAUrl");
+        String url = prop.getProperty("Url");
         String browser_properties = prop.getProperty("browser");
         String browser_maven = System.getProperty("browser");
 
@@ -47,9 +47,9 @@ public class TestBase {
             assert driver != null;
             driver.manage().window().setPosition(new Point(2000,0));
             driver.manage().window().maximize();
-            driver.get(url);
-            driver.findElement(By.xpath("//a[normalize-space()=\"Accept\"]")).click();
-            Thread.sleep(8000);
+            //driver.get(url);
+            //Thread.sleep(4000);
+            //driver.findElement(By.xpath("//a[normalize-space()=\"Accept\"]")).click();
         }
         return driver;
     }

@@ -10,7 +10,6 @@
         <module name="Kabum_Ecommerce" />
         <module name="Tribel" />
         <module name="CRS_Cuccumber_New" />
-        <module name="Tribel_BDD_Selenium_Cucumber-main" />
       </profile>
     </annotationProcessing>
   </component>
