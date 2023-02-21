@@ -32,15 +32,14 @@ public class nonUser_Steps {
     public void clickOnTribelIcon() throws InterruptedException {
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         nonUserPage.setTribelLogo();
-        nonUserPage.setTribelLogo();
-        testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+        Thread.sleep(3000);
+        //testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         Assert.assertEquals(nonUserPage.currentURL(), prop.getProperty("TrendingUrl"));
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
 
     @Then("Click on star contributors")
     public void nonUserStarContributors() throws InterruptedException {
-        nonUserPage.setStarContributor();
         nonUserPage.setStarContributor();
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         Assert.assertEquals(testContextSetup.testBase.driver.getCurrentUrl(), prop.getProperty("NonUser_SignIn"));
@@ -51,7 +50,6 @@ public class nonUser_Steps {
     public void nonUserIsNotBeAbleToSeeFeed(String feed) throws InterruptedException {
         Thread.sleep(2000);
         nonUserPage.setFeedName(feed);
-        nonUserPage.setFeedName(feed);
         Thread.sleep(2000);
         Assert.assertEquals(nonUserPage.setSignInSignUp_Suggestion().getText(), prop.getProperty("signInPageVerify"));
         nonUserPage.setClosePopup();
@@ -59,7 +57,6 @@ public class nonUser_Steps {
 
     @Then("Click on the {string} menu")
     public void clickOnTheMenu(String menu){
-        nonUserPage.setHeaderMenuName(menu);
         nonUserPage.setHeaderMenuName(menu);
         Assert.assertEquals(testContextSetup.testBase.driver.getCurrentUrl(), prop.getProperty("TrendingUrl"));
     }

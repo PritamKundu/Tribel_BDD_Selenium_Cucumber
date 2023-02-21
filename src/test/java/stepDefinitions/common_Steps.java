@@ -49,7 +49,6 @@ public class common_Steps {
     public void clickOnMenu(String menu) {
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         nonUserPage.setMenuName(menu);
-        nonUserPage.setMenuName(menu);
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         Assert.assertEquals(commonPage.accCreateMessage().getText(), prop.getProperty("signInPageVerify"));
         commonPage.nonUserAccCreateMessage();
@@ -58,7 +57,6 @@ public class common_Steps {
     @Then("Click on {string} feed posts")
     public void clickOnFeedPosts(String feed) throws InterruptedException {
         Thread.sleep(2000);
-        nonUserPage.setFeedName(feed);
         nonUserPage.setFeedName(feed);
         Thread.sleep(2000);
         String braekingurl = prop.getProperty("BreakingUrl");
