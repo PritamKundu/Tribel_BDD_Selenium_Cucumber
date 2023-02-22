@@ -104,7 +104,7 @@ Feature: Verify New User Functionality
     Then Click on personalize your feed, category "Advice" & sub category "Dating"
 
   #TID 019
-  Scenario: Check if the non-user can select everything except in the category
+  Scenario: TID 019 : Check if the non-user can select everything except in the category
     Given Go to Tribel.com
     When Click on everything except the category
     Then Click on personalize your feed, category "Advice" & sub category "Dating" for everything except

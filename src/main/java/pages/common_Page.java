@@ -70,9 +70,9 @@ public class common_Page {
         return driver.findElements(feed_post_body);
     }
 
-/*    public List<WebElement> setVerifySubCat() {
+    public List<WebElement> setVerifySubCat() {
         return driver.findElements(verify_sub_cat);
-    }*/
+    }
 
 
 
@@ -199,8 +199,19 @@ public class common_Page {
     }
 
     public void verifySubcategory(){
-      WebElement elems = (WebElement) driver.findElements(By.cssSelector("span:nth-child(1) > a:nth-child(1)"));
-        for (int i = 0; i <setVerifySubCat().size(); i++) {
+
+        //System.out.println(setVerifySubCat().getText());
+        for (WebElement elements : setVerifySubCat()) {
+            if (!(elements.getText() == "Pets - Cats")){
+                System.out.println(elements.getText());
+            }
+            else {
+                System.out.println("Fail");
+            }
+        }
+
+
+        /*for (int i = 0; i <setVerifySubCat().size(); i++) {
             String allData[] = new String[]{setVerifySubCat().get(i).getText()};
             //System.out.println(setVerifySubCat().get(i).getText());
         }
@@ -211,7 +222,7 @@ public class common_Page {
             else if (setVerifySubCat().get(i).getText().equals(subcat)) {
                 System.out.println("Except category not working properly !!");
             }
-        }
+        }*/
 
 
         /*try{
