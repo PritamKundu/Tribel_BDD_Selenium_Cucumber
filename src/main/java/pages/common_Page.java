@@ -198,7 +198,6 @@ public class common_Page {
         driver.findElement(everything_except).click();
     }
 
-
     public void verifySubcategory(){
       WebElement elems = (WebElement) driver.findElements(By.cssSelector("span:nth-child(1) > a:nth-child(1)"));
         for (int i = 0; i <setVerifySubCat().size(); i++) {
