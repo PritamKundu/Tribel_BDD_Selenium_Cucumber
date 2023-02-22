@@ -74,3 +74,37 @@ Feature: Verify New User Functionality
     Given Go to Tribel.com
     Then Click on comment on any posts
 
+     #TID 014
+  Scenario: Check if the non user can share post on Tribel
+    Given Go to Tribel.com
+    When Click on posts to share
+    Then Click share on tribel
+
+  #TID 015
+  Scenario: Check if the non user can share post on Facebook
+    Given Go to Tribel.com
+    When Click on posts to share
+    Then Click share on facebook
+
+  #TID 016
+  Scenario: Check if the non user can see the comments on a post
+    Given Go to Tribel.com
+    Then Click on comments on a post
+
+  #TID 017
+  Scenario: Check if the non user can select category in My Favorites
+    Given Go to Tribel.com
+    When Click on select My Favorites category
+    Then Click on personalize your feed, category "Advice" & sub category "Dating"
+
+  #TID 018
+  Scenario: Check if the non user can select a single category for his feed
+    Given Go to Tribel.com
+    When Click on select single category
+    Then Click on personalize your feed, category "Advice" & sub category "Dating"
+
+  #TID 019
+  Scenario: Check if the non-user can select everything except in the category
+    Given Go to Tribel.com
+    When Click on everything except the category
+    Then Click on personalize your feed, category "Advice" & sub category "Dating" for everything except

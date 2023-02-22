@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.NonUser.nonUser_Page;
 import pages.common_Page;
@@ -69,19 +70,7 @@ public class common_Steps {
             System.out.println(currentURL);
         }
         Thread.sleep(2000);
-
-        if (nonUserPage.setFeedPostBody().size()>0) {
-            System.out.println("Feed post count is : " +nonUserPage.setFeedPostBody().size());
-            System.out.println("---------------------------------------------");
-            for (int i = 0; i < nonUserPage.setFeedPostBody().size(); i++) {
-                nonUserPage.setFeedPostBody().get(i).isDisplayed();
-                //*Print every feed post*//*
-                System.out.println(nonUserPage.setFeedPostBody().get(i).getText());
-                System.out.println("---------------------------------------------");
-            }
-        }else{
-            System.out.println("Feed post not found !!");
-        }
+        commonPage.feedPost();
     }
 
     @Then("Click on Sign-in")
@@ -104,6 +93,48 @@ public class common_Steps {
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         Assert.assertEquals(commonPage.accCreateMessage().getText(), prop.getProperty("signInPageVerify"));
         commonPage.nonUserAccCreateMessage();
+    }
+
+    @Then("Click share on tribel")
+    public void clickShareOnTribel() {
+        commonPage.setShareTribel();
+        Assert.assertEquals(commonPage.accCreateMessage().getText(), prop.getProperty("signInPageVerify"));
+        commonPage.nonUserAccCreateMessage();
+    }
+
+    @When("Click on select My Favorites category")
+    public void clickOnSelectMyFavoritesCategory() {
+        commonPage.allCategory();
+        commonPage.myFavourite_cat();
+    }
+
+    @Then("Click on personalize your feed, category {string} & sub category {string}")
+    public void clickCategorySubCategory(String category, String sub_category) {
+        //commonPage.select_a_cat();
+        commonPage.categoryName(category);
+        commonPage.subCategoryName(sub_category);
+        //commonPage.select_a_cat();
+        commonPage.feedPost();
+    }
+
+    @When("Click on select single category")
+    public void clickOnSelectSingleCategory() {
+        commonPage.allCategory();
+        commonPage.single_Cat();
+    }
+
+    @When("Click on everything except the category")
+    public void clickOnEverythingExceptTheCategory() {
+        commonPage.allCategory();
+        commonPage.setEverything_except();
+    }
+
+    @Then("Click on personalize your feed, category {string} & sub category {string} for everything except")
+    public void clickOnEverythingExcept(String category, String sub_category) {
+        commonPage.categoryName(category);
+        commonPage.subCategoryName(sub_category);
+        //commonPage.feedPost();
+        commonPage.verifySubcategory();
     }
 }
 

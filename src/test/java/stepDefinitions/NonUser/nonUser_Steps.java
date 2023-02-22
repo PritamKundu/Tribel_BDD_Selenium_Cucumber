@@ -1,6 +1,7 @@
 package stepDefinitions.NonUser;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.NonUser.nonUser_Page;
 import pages.common_Page;
@@ -32,8 +33,7 @@ public class nonUser_Steps {
     public void clickOnTribelIcon() throws InterruptedException {
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         nonUserPage.setTribelLogo();
-        Thread.sleep(3000);
-        //testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+        testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         Assert.assertEquals(nonUserPage.currentURL(), prop.getProperty("TrendingUrl"));
         testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
@@ -61,6 +61,22 @@ public class nonUser_Steps {
         Assert.assertEquals(testContextSetup.testBase.driver.getCurrentUrl(), prop.getProperty("TrendingUrl"));
     }
 
+    @When("Click on posts to share")
+    public void clickOnPostsToShare() {
+        commonPage.setShareIcon();
+    }
+
+    @Then("Click share on facebook")
+    public void clickShareOnFacebook() throws InterruptedException {
+        commonPage.setShareFacebook();
+    }
+
+    @Then("Click on comments on a post")
+    public void clickOnCommentsOnAPost() {
+        commonPage.setPostComments();
+        Assert.assertEquals(commonPage.accCreateMessage().getText(), prop.getProperty("signInPageVerify"));
+        commonPage.nonUserAccCreateMessage();
+    }
 }
 
 
