@@ -1,110 +1,174 @@
 Feature: Verify New User Functionality
 
-  #TID 001
   @NonUser
-  Scenario: Check that by clicking on Tribel.com icon the non user will be redirected to Tribel.com home page
+  Scenario: TID 001: Check that by clicking on Tribel.com icon the non user will be redirected to Tribel.com home page
     Given Go to Tribel.com
     Then Click on the tribel.com icon
 
-  #TID 002
+
   @NonUser
-  Scenario: Check if the non user can create new post by clicking on New post button
+  Scenario: TID 002: Check if the non user can create new post by clicking on New post button
     Given Go to Tribel.com
     Then Click on "New Post"
 
-  #TID 003
+
   @NonUser
-  Scenario: Check that the non user can not see the star contributors
+  Scenario: TID 003: Check that the non user can not see the star contributors
     Given Go to Tribel.com
     Then Click on star contributors
 
-  #TID 004
+
   @NonUser
-  Scenario: Check that the non user is not allowed to see the Groups
+  Scenario: TID 004: Check that the non user is not allowed to see the Groups
     Given Go to Tribel.com
     Then Click on "Groups"
 
-  #TID 005
+
   @NonUser
-  Scenario: Check that the non-user is not allowed to go to the invite friends page
+  Scenario: TID 005: Check that the non-user is not allowed to go to the invite friends page
     Given Go to Tribel.com
     Then Click on "Invite Friends"
 
-  #TID 006
   @NonUser
-  Scenario: Verify that non-users will not be able to see Friends feed
+  Scenario: TID 006: Verify that non-users will not be able to see Friends feed
     Given Go to Tribel.com
     Then Click on "Friends"
 
-  #TID 007
+
   @NonUser
-  Scenario: Verify that non-users will not be able to see Following Feed
+  Scenario: TID 007: Verify that non-users will not be able to see Following Feed
     Given Go to Tribel.com
     Then Click on "Following"
 
-  #TID 008
+
   @NonUser
-  Scenario: Check if the non user can see Breaking Feed posts
+  Scenario: TID 008: Check if the non user can see Breaking Feed posts
     Given Go to Tribel.com
     Then Click on "Breaking" feed posts
 
-  #TID 009
   @NonUser
-  Scenario: Check if the non user can See Trending Feed posts
+  Scenario: TID 009: Check if the non user can See Trending Feed posts
     Given Go to Tribel.com
     Then Click on "Trending" feed posts
 
-  #TID 010
-  Scenario: Check if the user is redirected to Trending feed after clicking on Home button
+  @NonUser
+  Scenario: TID 010: Check if the user is redirected to Trending feed after clicking on Home button
     Given Go to Tribel.com
     Then Click on the "Home" menu
 
-  #TID 011
-  Scenario: Check if Clicking on Sign in button takes the user to Sign in page
+  @NonUser
+  Scenario: TID 011: Check if Clicking on Sign in button takes the user to Sign in page
     Given Go to Tribel.com
     Then Click on Sign-in
 
-  #TID 012
-  Scenario: Check if the non user can like on posts in feed
+  @NonUser
+  Scenario: TID 012: Check if the non user can like on posts in feed
     Given Go to Tribel.com
     Then Click like on posts in the feed
 
-  #TID 013
-  Scenario: Check if the non user can comment on any posts
+  @NonUser
+  Scenario: TID 013: Check if the non user can comment on any posts
     Given Go to Tribel.com
     Then Click on comment on any posts
 
-     #TID 014
-  Scenario: Check if the non user can share post on Tribel
+  @NonUser
+  Scenario: TID 014: Check if the non user can share post on Tribel
     Given Go to Tribel.com
     When Click on posts to share
     Then Click share on tribel
 
-  #TID 015
-  Scenario: Check if the non user can share post on Facebook
+  @NonUser
+  Scenario: TID 015: Check if the non user can share post on Facebook
     Given Go to Tribel.com
     When Click on posts to share
     Then Click share on facebook
 
-  #TID 016
-  Scenario: Check if the non user can see the comments on a post
+  @NonUser
+  Scenario: TID 016: Check if the non user can see the comments on a post
     Given Go to Tribel.com
     Then Click on comments on a post
 
-  #TID 017
-  Scenario: Check if the non user can select category in My Favorites
+  @NonUser
+  Scenario: TID 017: Check if the non user can select category in My Favorites
     Given Go to Tribel.com
     When Click on select My Favorites category
     Then Click on personalize your feed, category "Advice" & sub category "Dating"
 
-  #TID 018
-  Scenario: Check if the non user can select a single category for his feed
+  @NonUser
+  Scenario: TID 018: Check if the non user can select a single category for his feed
     Given Go to Tribel.com
     When Click on select single category
     Then Click on personalize your feed, category "Advice" & sub category "Dating"
 
-  #TID 019
-  Scenario: TID 019 : Check if the non-user can select everything except in the category
+  @NonUser
+  Scenario: TID 019: Check if the non-user can select everything except in the category
     Given Go to Tribel.com
     When Click on everything except the category
-    Then Click on personalize your feed, category "Advice" & sub category "Dating" for everything except
+    Then Click on personalize your feed, category "Activism" & sub category "Animal Rescues" for everything except
+
+  @NonUser
+  Scenario: TID 020: Check if the non user can clear the selected category for personalized feed
+    Given Go to Tribel.com
+    When Click on everything except the category
+    And Click on personalize your feed, category "Activism" & sub category "Animal Rescues" for everything except
+    Then Click on clear all the selected categories for a personalized feed
+
+  @NonUser
+  Scenario: TID 021: Verify that as many avatars as the post like list are visible and they are clickable
+    Given Go to Tribel.com
+    When Click on "Trending" feed posts
+    Then Click on the avatar of liked person from posts.
+
+  @NonUser
+  Scenario: TID 022: Check if  non user copy link of a post is working properly
+    Given Go to Tribel.com
+    When Click on "Trending" feed posts
+    And  There will show the most trending and breaking posts in those feeds.
+    Then Copy the link to the post
+
+  @NonUser @UserProfile
+  Scenario Outline: TID 023: Check if the non user can see a user's profile
+    Given Go to Tribel.com
+    Then Click on a user's profile <feed_username_number>
+
+    Examples:
+      | feed_username_number |
+      |       0              |
+      |       1              |
+      |       2              |
+
+  #@NonUser @UserProfile
+  #Scenario Outline: TID 024: Check if a non user can report a profile
+    #Given Go to Tribel.com
+    #When Click on a user's profile <feed_username_number>
+    #Then Click on user report profile from ellipsis icon <ellipsis_icon_number>, "<Ellipsis_Icon_SubMenu>", "<Report_Violation_Category>", "<Report_to_Tribel_or_Post_Owner>", "I don't see your post !"
+
+    #Examples:
+      #|ellipsis_icon_number| | feed_username_number |      Ellipsis_Icon_SubMenu       |Report_Violation_Category           | Report_to_Tribel_or_Post_Owner |
+      #|             0      | |       0              |      Report Profile              |    Contains Nudity                 |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile1              |    Contains Violence               |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile2              |    Contains Harassment             |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Suicide or Self-Injury |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains False News             |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Spam                   |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Unauthorized Sales     |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Hate Speech            |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Other                  |           Report to Tribel     |
+
+  @NonUser @UserProfile
+  Scenario Outline: TID 025: Check if a non user can report a post in user profile
+    Given Go to Tribel.com
+    When Click on a user's profile <feed_username_number>
+    Then Click on user report profile from ellipsis icon "<ellipsis_icon_name>", "<Ellipsis_Icon_SubMenu>", "<Report_Violation_Category>", "<Report_to_Tribel_or_Post_Owner>", "I don't see your post !"
+
+    Examples:
+      |ellipsis_icon_name| | feed_username_number |      Ellipsis_Icon_SubMenu       |Report_Violation_Category           | Report_to_Tribel_or_Post_Owner |
+      |     post      | |       0              | Report Profile|    Contains Nudity                 |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Violence               |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Harassment             |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Suicide or Self-Injury |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains False News             |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Spam                   |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Unauthorized Sales     |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Hate Speech            |           Report to Tribel     |
+      #|             0      | |       0              |      Report Profile              |    Contains Other                  |           Report to Tribel     |

@@ -62,7 +62,7 @@ public class nonUser_Steps {
     }
 
     @When("Click on posts to share")
-    public void clickOnPostsToShare() {
+    public void clickOnPostsToShare() throws InterruptedException {
         commonPage.setShareIcon();
     }
 

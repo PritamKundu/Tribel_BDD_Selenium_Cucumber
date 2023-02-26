@@ -10,6 +10,7 @@ import utils.TestContextSetup;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -133,9 +134,74 @@ public class common_Steps {
     public void clickOnEverythingExcept(String category, String sub_category) {
         commonPage.categoryName(category);
         commonPage.subCategoryName(sub_category);
-        //commonPage.feedPost();
-        commonPage.verifySubcategory();
+        commonPage.verifySubcategoryNotFound(category, sub_category);
     }
+
+    @Then("Click on clear all the selected categories for a personalized feed")
+    public void clickOnClearAllTheSelectedCategories() {
+        commonPage.clearAll();
+        try{
+            Assert.assertFalse(commonPage.setVerifySubCatAfterClear().isDisplayed());
+        }
+        catch (Exception e){
+            System.out.println("Clear all functionality working properly !!");
+        }
+    }
+
+    @Then("Click on the avatar of liked person from posts.")
+    public void clickOnTheAvatarOfLikedPersonFromPosts() throws InterruptedException {
+        commonPage.likeAvatar();
+    }
+
+    @Then("There will show the most trending and breaking posts in those feeds.")
+    public void trendingAndBreakingPostsInThoseFeeds() {
+        commonPage.feedPost();
+    }
+
+    @Then("Copy the link to the post")
+    public void copyTheLinkToThePost() throws InterruptedException {
+        commonPage.setShareIcon();
+        commonPage.setCopyLink();
+    }
+
+    @Then("Click on a user's profile {int}")
+    public void clickOnAUserSProfile(int feed_username_number) throws InterruptedException {
+        String username = commonPage.setFeedUserName().get(feed_username_number).getText();
+        commonPage.postUsernameOnFeed(feed_username_number);
+        Thread.sleep(2000);
+        Assert.assertEquals(commonPage.setFeedUserName().get(0).getText(), username);
+    }
+
+/*    @Then("Click on user report profile from ellipsis icon {int}, {string}, {string}, {string}, {string}")
+    public void userReportProfile(int ellipsisIconNumber, String ellipsisSubMenu, String violationCategory, String reportTo, String reportMessage ) throws InterruptedException {
+        Thread.sleep(5000);
+        commonPage.ellipsisIconProfile(ellipsisIconNumber);
+        commonPage.ellipsisIconProfile(ellipsisIconNumber);
+        commonPage.setEllipsisIconSubMenu(ellipsisSubMenu);
+        commonPage.setReportViolationCategory(violationCategory);
+        commonPage.continueButton();
+        commonPage.setReportToTribelOrPostOwner(reportTo);
+        commonPage.continueButton();
+        commonPage.reportMessage(reportMessage);
+        commonPage.sendButton();
+        Thread.sleep(2000);
+    }*/
+
+    @Then("Click on user report profile from ellipsis icon {string}, {string}, {string}, {string}, {string}")
+    public void userReportProfile(String ellipsisIconName, String ellipsisSubMenu, String violationCategory, String reportTo, String reportMessage ) throws InterruptedException {
+        Thread.sleep(5000);
+        commonPage.ellipsisIcon(ellipsisIconName);
+        //commonPage.ellipsisIconProfile(ellipsisIconNumber);
+        commonPage.setEllipsisIconSubMenu(ellipsisSubMenu);
+        commonPage.setReportViolationCategory(violationCategory);
+        commonPage.continueButton();
+        commonPage.setReportToTribelOrPostOwner(reportTo);
+        commonPage.continueButton();
+        commonPage.reportMessage(reportMessage);
+        commonPage.sendButton();
+        Thread.sleep(2000);
+    }
+
 }
 
 
